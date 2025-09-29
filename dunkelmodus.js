@@ -28,7 +28,10 @@ class Dunkelmodus {
 
     addToggleButton() {
         const button = document.querySelector(this.buttonSelector);
-        button.addEventListener('click', () => this.toggleMode());
+        if (button) {
+            button.removeEventListener('click', this.toggleMode.bind(this)); // Prevent multiple listeners
+            button.addEventListener('click', this.toggleMode.bind(this));
+        }
     }
 
     toggleMode() {
