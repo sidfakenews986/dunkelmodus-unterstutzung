@@ -1,4 +1,4 @@
-import Dunkelmodus from './Dunkelmodus';
+import Dunkelmodus from './Dunkelmodus.js';
 
 const themeToggle = new Dunkelmodus({
     buttonSelector: '#toggle-theme',
