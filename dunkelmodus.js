@@ -13,7 +13,7 @@ class Dunkelmodus {
     }
 
     loadUserPreference() {
-        const userPreference = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const userPreference = localStorage.getItem('darkMode') === 'true' || window.matchMedia('(prefers-color-scheme: dark)').matches;
         this.isDarkMode = userPreference;
         this.applyStyles();
     }
@@ -23,6 +23,7 @@ class Dunkelmodus {
         Object.keys(styles).forEach(key => {
             document.body.style[key] = styles[key];
         });
+        localStorage.setItem('darkMode', this.isDarkMode);
     }
 
     addToggleButton() {
